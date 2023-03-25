@@ -27,7 +27,7 @@ pipeline
 
 		stage("Copying the War file to Job Location"){
 			steps{
-				sh 'cp /var/lib/jenkins/workspace/4444/target/*.war /var/lib/jenkins/workspace/4444' 
+				sh 'cp /root/.jenkins/workspace/narayana-new-job/target/*.war /root/.jenkins/workspace/narayana-new-job/' 
 
 		}
 	}
@@ -46,8 +46,8 @@ pipeline
 		stage("push Image: DOCKERHUB"){
              steps{
 
-                withCredentials([string(credentialsId: 'DockerPassword', variable: 'DockerPassword')]) {
-                sh 'docker login -u narayanareddy143 -p ${DockerPassword}'
+                withCredentials([string(credentialsId: 'dockerpassword', variable: 'dockerpassword')]) {
+                sh 'docker login -u narayanareddy143 -p ${dockerpassword}'
                 sh 'docker image push narayanareddy143/$JOB_NAME:v1.$BUILD_ID'
                 
               }
