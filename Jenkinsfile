@@ -27,7 +27,7 @@ pipeline
 
 		stage("Copying the War file to Job Location"){
 			steps{
-				sh 'cp /var/lib/jenkins/workspace/narayana-pipeline-project/target/*.war /var/lib/jenkins/workspace/narayana-pipeline-project'
+				sh 'cp /var/lib/jenkins/workspace/narayana-pipeline-job/target/*.war /var/lib/jenkins/workspace/narayana-pipeline-job'
 
 		}
 	}
